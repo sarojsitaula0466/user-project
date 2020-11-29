@@ -15,11 +15,15 @@ const Card = ({ users }) => {
     <div className="card-wrapper">
       {users.map((user) => (
         <div key={user.id} className="card">
-          <h4>{user.name}</h4>
-          <p>@{user.username}</p>
-          <p>{user.website}</p>
+          <span className="first-letter">{user.name[0]}</span>
+          <h4 className="user-name">{user.name}</h4>
+          <p className="user-userName">@{user.username}</p>
+          <Link to="#" className="website-url">
+            <p className="website">http://{user.website}</p>
+          </Link>
           <Link to={`/users/${user.id}`}>
-            <button>More Details</button>
+            <Button msg="MORE DETAILS" />
+            {/* <button>More Details</button> */}
           </Link>
         </div>
       ))}
